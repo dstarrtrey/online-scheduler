@@ -1,0 +1,21 @@
+header{
+  background-color: #b71c1c;
+  color: #fff;
+  padding: 0;
+  font-family: "Roboto";
+  font-weight: bold;
+  height: 11vh;
+  max-height: 140px;
+}
+h1{
+  margin: 1vh 0 1vh 2vw;
+  font-size: 8vh;
+  line-height: 1;
+  display: inline-block;
+}
+.darker{
+  background-color: #651010;
+  position: relative;
+  font-size: 0;
+  height: 1vh;
+}
