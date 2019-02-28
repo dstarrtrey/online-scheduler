@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import { DatePicker } from 'material-ui-pickers';
+import generateSchedule from "./generate-schedule";
 function getModalStyle() {
   const top = 50;
   const left = 50;
@@ -82,8 +83,7 @@ class ScheduleModal extends React.Component{
     console.log(this.state.password);
     console.log(this.state.startDate);
     console.log(this.state.endDate);
-    var doc = document.implementation.createHTMLDocument("New Document");
-    doc.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+    generateSchedule(this.state.scheduleName, this.state.password, this.state.startDate, this.state.endDate);
   }
   render() {
     const classes = this.props.classes;

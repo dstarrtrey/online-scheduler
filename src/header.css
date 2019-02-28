@@ -6,17 +6,12 @@ header{
   font-weight: bold;
   height: 11vh;
   max-height: 140px;
+  box-sizing: border-box;
+  border-bottom: 1vh solid #651010;
 }
 h1{
   margin: 1vh 0 1vh 2vw;
   font-size: 8vh;
   line-height: 1;
   display: inline-block;
-}
-.darker{
-  background-color: #651010;
-  position: relative;
-  top: 1px;
-  font-size: 0;
-  height: 1vh;
 }

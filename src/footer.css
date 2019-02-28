@@ -1,4 +1,12 @@
 footer{
   background-color: #651010;
   color: #fff;
+  text-align: center;
+  border-top: 1vh solid #440b0b;
+}
+footer a{
+  color: white;
+}
+footer a:hover{
+  color: #ffc107;
 }
