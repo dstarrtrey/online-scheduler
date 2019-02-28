@@ -1,12 +1,15 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 export const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: {
-      main: "#b71c1c",
-      contrastText: "#fff"
+      main: "#ffc107",
+      contrastText: "#000"
     },
     secondary: {
-      main: "#ff6f00",
+      main: "#b71c1c",
       contrastText: "#fff"
     }
   }

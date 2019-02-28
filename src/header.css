@@ -16,6 +16,7 @@ h1{
 .darker{
   background-color: #651010;
   position: relative;
+  top: 1px;
   font-size: 0;
   height: 1vh;
 }
