@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Grid from '@material-ui/core/Grid';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"; //For placeholder link to schedule template
 //Style for homepage
 import "./index.css";
 //Components to render
+import Home from "./home-page.js"
+import TemplateSchedule from "./template-schedule.js";
 import Header from "./header.js";
 import Footer from "./footer.js";
-import NewSchedule from "./new-schedule.js";
+
 class App extends React.Component {
   constructor(props){
     super(props);
@@ -14,16 +16,27 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="page">
-        <Header className="header"/>
-        <main 
-          className="content">
-          <Grid item xs={12} sm={8} md={6}>
-            <NewSchedule style={{ fontSize: "63px" }}/>
-          </Grid>
-        </main>
-        <Footer className="footer"/>
-      </div>
+      <Router>
+        <div className="page">
+          <div>
+            <Header className="header"/>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/template">Template Schedule</Link>
+              </li>
+            </ul>
+          </div>
+            <main 
+              className="content">
+              <Route exact path="/" component={Home} />
+              <Route path="/template" component={TemplateSchedule} />
+            </main>
+          <Footer className="footer"/>
+        </div>
+      </Router>
     );
   }
 }

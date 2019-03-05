@@ -52,11 +52,17 @@ const styles = theme => ({
 class ScheduleModal extends React.Component {
   constructor(props) {
     super(props);
+    const today = new Date();
+    const nextWeek = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() + 7
+    );
     this.state = {
       scheduleName: "New Schedule",
       password: "",
-      startDate: new Date(),
-      endDate: new Date()
+      startDate: today,
+      endDate: nextWeek
     };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);

@@ -1,36 +1,29 @@
 html, body {
   height: 100%;
   overflow: scroll;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar {
-  width: 0px;  /* remove scrollbar space */
-  background: transparent;  /* optional: just make scrollbar invisible */
+  overflow: overlay;
+  overflow-x: auto;
 }
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-  background: #FF0000;
+  background: #b71c1c;
+  border-radius: 5px;
 }
 body{
   margin: 0;
   background-color: #747375;
   background-image: url("./images/calendar.jpg");
   background-position: center bottom; 
+  background-size: cover;
 }
 .page{
-  min-height: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
 .header{
   height: 100%;
   padding: 0;
-}
-.content{
-  height: 89vh;
-  display: flex; 
-  align-items: center;
-  justify-content: center;
 }
 .footer {
   padding: 0;
@@ -40,5 +33,12 @@ body{
 @media screen and (min-width: 1400px) {
   body{
     background-position: left top;
+  }
+}
+@media screen and (min-width: 600px) {
+  ::-webkit-scrollbar {
+    width: 5px;  /* remove scrollbar space */
+    height: 5px;
+    z-index: -1;
   }
 }
