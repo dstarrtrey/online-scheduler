@@ -37,6 +37,9 @@ class TemplateSchedule extends React.Component {
     const value = event.target.value
     this.setState({name: value ? value : "N/A"});
   }
+  handleFocus(event){
+    event.target.select();
+  }
   render() {
     const scheduleName = this.state.name;
     const { classes } = this.props;
@@ -53,6 +56,7 @@ class TemplateSchedule extends React.Component {
           }}
           margin="normal"
           autoFocus={false}
+          onFocus={this.handleFocus}
           onChange={this.handleNameChange}
         />
         <TopTemplate startDate={this.props.startDate} endDate={this.props.endDate} />
