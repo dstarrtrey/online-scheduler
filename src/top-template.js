@@ -9,6 +9,8 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { theme } from "./theme.js";
 import { format, differenceInCalendarDays } from "date-fns";
+import Event from "./event-component.js";
+import NoEvent from "./no-event-component.js";
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: "#651010",
@@ -55,15 +57,6 @@ const styles = theme => ({
     borderRight: "2px dashed #c1c1c1",
     padding: "0"
   },
-  event: {
-    backgroundColor: theme.palette.primary.light,
-    color: "#651010",
-    margin: "5px 10px",
-    width: 120,
-    height: 60,
-    textAlign: "center",
-    borderRadius: 10
-  },
   date: {
     marginTop: "0"
   },
@@ -89,10 +82,18 @@ class TopTemplate extends React.PureComponent {
     });
     return dateArr;
   }
+  isEvent(day, time){
+    const { events } = this.props;
+    if (events.some(x => x.date === day && x.time === time)){
+      console.log("EVENT EXISTS");
+      return <Event event={events.filter(x => x.date === day && x.time === time)} />
+    } else {
+      return <NoEvent day={ day } time={ time }/>
+    }
+  }
   render(){
-
     const allDays = this.dateRange();
-    const { classes, events } = this.props;
+    const { classes } = this.props;
     function getTimes() {
       const hourArr = [...Array(24).keys()];
       return hourArr.map(x => {
@@ -135,7 +136,7 @@ class TopTemplate extends React.PureComponent {
                 >
                   <b>{hour}</b>
                 </CustomTableCell>
-                {allDays.map(x => <CustomTableCell key={`${hour}${x}`}className={classes.column}><div className={classes.event}>{format(new Date(x[1]), "MM/dd")} {hour}</div></CustomTableCell>)}
+                {allDays.map(x => <CustomTableCell key={`${hour}${x}`}className={classes.column}>{this.isEvent(x[1], hour)}</CustomTableCell>)}
               </TableRow>
             ))}
           </TableBody>

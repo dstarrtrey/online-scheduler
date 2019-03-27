@@ -87,11 +87,12 @@ class ScheduleModal extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.scheduleName);
-    console.log(this.state.password);
-    console.log(this.state.startDate);
-    console.log(this.state.endDate);
-    //generateSchedule(this.state.scheduleName, this.state.password, this.state.startDate, this.state.endDate);
+    const { scheduleName, password, startDate, endDate } = this.state;
+    console.log(scheduleName);
+    console.log(password);
+    console.log(startDate);
+    console.log(endDate);
+    //generateSchedule(scheduleName, password, startDate, endDate);
   }
   render() {
     const classes = this.props.classes;

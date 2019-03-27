@@ -20,14 +20,6 @@ class App extends React.Component {
         <div className="page">
           <div>
             <Header className="header"/>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/template">Template Schedule</Link>
-              </li>
-            </ul>
           </div>
             <main 
               className="content">
@@ -35,6 +27,14 @@ class App extends React.Component {
               <Route path="/template" component={TemplateSchedule} />
             </main>
           <Footer className="footer"/>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/template">Template Schedule</Link>
+            </li>
+          </ul>
         </div>
       </Router>
     );

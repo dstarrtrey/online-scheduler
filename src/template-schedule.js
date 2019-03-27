@@ -3,7 +3,6 @@ import TopTemplate from "./top-template.js";
 import BottomTemplate from "./bottom-template.js";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
@@ -18,6 +17,7 @@ const styles = theme => ({
     color: "#440b0b",
     fontWeight: "bold",
     marginLeft: "2vw",
+    marginTop: 0,
     borderBottom: "1px solid #ffc107",
     display: "inline-block",
   },
@@ -30,12 +30,36 @@ const styles = theme => ({
 class TemplateSchedule extends React.Component {
   constructor(props){
     super(props);
-    this.state={name: props.name}
+    this.state={
+      name: props.name,
+      events: [
+        {
+          name: "Wake Up",
+          date: "03/30/19",
+          time: "6:00 am"
+        },
+        {
+          name: "Go to the beach",
+          date: "03/30/19",
+          time: "12:00 pm"
+        },
+        {
+          name: "Baseball practice",
+          date: "03/30/19",
+          time: "11:00 pm"
+        },
+        {
+          name: "Chess club",
+          date: "03/30/19",
+          time: "9:00 am"
+        }
+      ]
+    }
     this.handleNameChange = this.handleNameChange.bind(this);
   }
   handleNameChange(event){
     const value = event.target.value
-    this.setState({name: value ? value : "N/A"});
+    this.setState({ name: value });
   }
   handleFocus(event){
     event.target.select();
@@ -59,7 +83,7 @@ class TemplateSchedule extends React.Component {
           onFocus={this.handleFocus}
           onChange={this.handleNameChange}
         />
-        <TopTemplate startDate={this.props.startDate} endDate={this.props.endDate} />
+        <TopTemplate events={this.state.events}startDate={this.props.startDate} endDate={this.props.endDate} />
         <BottomTemplate />
       </div>
     );
